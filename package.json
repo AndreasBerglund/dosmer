@@ -1,4 +1,11 @@
 {
-    "name":"dosmer",
-    "version": "0.0.1"
-  }
+"name":"dosmer",
+"version": "0.0.1",
+"main" : "app.js",
+"engines": {
+    "node" : "12.x"
+},
+"dependencies": {
+    "express" : "4.17.1"
+}
+}
