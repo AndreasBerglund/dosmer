@@ -1,16 +1,18 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3002
 const cookieParser = require('cookie-parser')
 const shortid = require('shortid');
-
  
 app.use(cookieParser());
+app.set('view engine', 'pug')
+
+
 
 //db
 const { Pool } = require('pg');
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:1qa@localhost:5432/postgres',
   ssl: true
 });
 
@@ -27,6 +29,10 @@ app.get('/db', async (req, res) => {
     }
   })
 
+
+app.get('/', function (req, res) {
+    res.render('index', { title: 'Hey', message: 'Hello there!' })
+})
 
 app.get('/make', (req, res) => { 
     // read cookies
