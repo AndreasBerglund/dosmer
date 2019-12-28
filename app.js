@@ -8,7 +8,6 @@ app.use(cookieParser());
 app.set('view engine', 'pug')
 
 
-
 //db
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -29,14 +28,15 @@ app.get('/db', async (req, res) => {
     }
   })
 
+app.get('/', (req, res) => {
+    let cookie = req.cookies['dosmerlist'];
 
-app.get('/', function (req, res) {
-    res.render('index', { title: 'Hey', message: 'Hello there!' })
+    res.render('index', { title: 'Hey', message: 'Hello there!' + cookie })
 })
 
 app.get('/make', (req, res) => { 
     // read cookies
-    console.log(req.cookies) 
+    console.log( req.cookies ) 
     res.cookie('dosmerlist', shortid.generate())
     res.send('Made a list')
 });
