@@ -15,14 +15,12 @@ div(id="item-" + item.id class=item.state ? 'on item' : 'off item' data-id=item.
         name='name'
         value=item.name
     ) 
-    input(
-        type='number'
-        name='amount'
-        value=item.amount
-    ) 
     - let n = 1
     select
         while n < 501
-            option(value=n)=n++
+            if item.amount == n
+                option(value=n selected)=n++
+            else 
+                option(value=n )=n++
             
             

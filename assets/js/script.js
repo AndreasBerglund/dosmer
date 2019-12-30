@@ -5,7 +5,7 @@
         function updateItem(item, newitem=0) {
 
             let textBox = item.find('input[name=name]')
-            let amountBox = item.find('input[name=amount]')
+            let amountBox = item.find('select')
             let checkBox = item.find('input[type=checkbox]')
           
             let id = item.attr('data-id')
