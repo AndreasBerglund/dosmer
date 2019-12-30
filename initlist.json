@@ -1,0 +1,28 @@
+{
+    "items" : [
+        {
+            "name" : "Mælk",
+            "state" : "false",
+            "amount" : "1",
+            "imp" : "1"
+        },
+        {
+            "name" : "Smør",
+            "state" : "false",
+            "amount" : "1",
+            "imp" : "1"
+        },
+        {
+            "name" : "Rugbrød",
+            "state" : "false",
+            "amount" : "1",
+            "imp" : "1"
+        },
+        {
+            "name" : "Kartofler",
+            "state" : "false",
+            "amount" : "1",
+            "imp" : "1"
+        }
+    ]
+}

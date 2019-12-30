@@ -1,0 +1,10 @@
+.item {
+  background-color: grey;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.item.on {
+  background-color: greenyellow;
+}
+/*# sourceMappingURL=style.css.map */
