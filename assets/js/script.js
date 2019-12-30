@@ -69,7 +69,7 @@
         })
 
         $('button.newitem').click(function(){
-            let newitem = $('.item').last().clone()
+            let newitem = $('.item').last().clone(true, true)
             updateItem(newitem, 1)
             newitem.appendTo('.itemlist')
         })
