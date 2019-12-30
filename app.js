@@ -11,7 +11,6 @@ app.use(cookieParser())
 app.set('view engine', 'pug')
 
 app.use(express.static('assets'))
-
 app.use(bodyParser.json())
 
 
