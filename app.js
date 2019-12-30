@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
     if ( cookie ) {
       items = await db.getitems(cookie)
       reply = 'hello here is your list: '
-      console.log(items)
+      error.log(items)
     } 
     res.render('index', { title: 'Hey', message: reply, list: items, button : 'new list', urlto: fullUrl  })
 })
