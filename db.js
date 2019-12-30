@@ -77,6 +77,7 @@ exports.getitems = async function getitems(list) {
         let q = "SELECT * FROM items WHERE list = '" + list + "'"
         
         const result = await client.query(q) 
+        console.log(result)
         const results = (result) ? result.rows : null
         return results;     
         client.release() 
