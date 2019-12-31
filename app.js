@@ -21,12 +21,11 @@ app.get('/db', async (req, res) => {
 app.get('/', async (req, res) => {
     let cookie = req.cookies[ckn]
     let reply = 'make a new list or join a list'
-    let items = [] 
+    let items = null
     let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     if ( cookie ) {
       items = await db.getitems(cookie)
       reply = 'hello here is your list: '
-
     } 
     res.render('index', { title: 'Hey', message: reply, list: items, button : 'new list', urlto: fullUrl  })
 })
