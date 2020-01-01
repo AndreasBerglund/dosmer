@@ -53,7 +53,8 @@
 
         });
 
-        $('.item').find('input').click(function(e){
+        $('.item').find('input, select').click(function(e){
+            
             e.stopPropagation();
             
             if(e.target.type == 'checkbox') {

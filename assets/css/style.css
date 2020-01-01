@@ -11,6 +11,16 @@ body, html {
   margin: 1rem;
   position: relative;
   border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .item:after {
@@ -38,11 +48,22 @@ body, html {
 
 .item input[type=checkbox] {
   visibility: hidden;
+  margin-left: 2rem;
 }
 
 .item input[type=text] {
   background: transparent;
   border: none;
+  font-family: 'Kulim Park', sans-serif;
   font-size: 18px;
+}
+
+.item select {
+  background: transparent;
+  padding: 0px;
+  border: 1px solid transparent;
+  font-family: 'Kulim Park', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */
