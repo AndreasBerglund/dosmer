@@ -1,13 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park:300,400,700&display=swap');
+
 body, html {
     margin: 0;
     padding: 0;
+    font-family: 'Kulim Park', sans-serif;
 }
 
 .item {
-    background-color: grey;
+    background-color: rgb(226, 226, 226);
     padding: 1rem;
     margin:  1rem;
-    &.on {
-        background-color: greenyellow;
+    position: relative;
+    border-radius: 8px;
+
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%; transform: translateY(-50%);
+        right: 1rem;
+        width: 24px; height: 24px;
+        background-image: url('../images/accept-circular-button-outline.svg');
+        background-size: contain;
+        opacity: .3;
     }
+
+
+    &.on {
+        background-color: rgb(255, 208, 0);
+        &:after {
+            opacity: 1;
+            background-image: url('../images/shopping-cart.svg');
+        }
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+
+    input[type=text] {
+        
+        background: transparent;
+        border: none;
+
+        font-size: 18px;
+        
+    }
+
 }

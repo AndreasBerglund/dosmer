@@ -26,6 +26,8 @@ app.get('/', async (req, res) => {
     if ( cookie ) {
       items = await db.getitems(cookie)
       reply = 'hello here is your list: '
+      items.sort((a, b) => (a.imp > b.imp) ? 1 : -1)
+      items.sort((a, b) => b.state - a.state )
     } 
     res.render('index', { title: 'Hey', message: reply, list: items, button : 'new list', urlto: fullUrl  })
 })
@@ -77,6 +79,7 @@ app.get('/*', async (req, res) => {
 
   //res.render('index', { title: 'wildcard', message: 'shortid :'  + url + ' is : '  + valid + ' cookie: '+ cookie })
 })
+
 
 
 app.listen(port, () => console.log(`Dosmer app listening on port ${port}!`))

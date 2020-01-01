@@ -1,15 +1,6 @@
 div(id="item-" + item.id class=item.state ? 'on item' : 'off item' data-id=item.id data-imp=item.imp data-list=item.list)
-    if item.state
-        input(
-            type='checkbox'
-            name='state'
-            checked='checked'
-        )
-    else
-        input(
-            type='checkbox'
-            name='state'
-        )
+    
+
     input(
         type='text'
         name='name'
@@ -22,5 +13,16 @@ div(id="item-" + item.id class=item.state ? 'on item' : 'off item' data-id=item.
                 option(value=n selected)=n++
             else 
                 option(value=n )=n++
+    if item.state
+        input(
+            type='checkbox'
+            name='state'
+            checked='checked'
+        )
+    else
+        input(
+            type='checkbox'
+            name='state'
+        )
             
             

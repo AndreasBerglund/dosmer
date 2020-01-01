@@ -56,6 +56,8 @@ exports.insertitem = async function insertitem(name, state, amount, imp, list) {
 
 exports.updateitem = async function updateitem(name, state, amount, imp, list, id) {
 
+    imp++
+    
     try {
         const client = await pool.connect()
         let q = "UPDATE items SET name = '" + name + "', state = " + state + ", amount = " + amount + ", imp = " + imp + " WHERE id = " + id 
