@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
 
     if ( cookie ) {
       items = await db.getitems(cookie)
-      reply = 'hello here is your list: '
+      reply = ''
       items.sort((a, b) => (a.imp > b.imp) ? 1 : -1)
       items.sort((a, b) => b.state - a.state )
     } 
