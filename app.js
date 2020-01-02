@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 const cookieParser = require('cookie-parser')
 const shortid = require('shortid')
 const ckn = 'dosmerlist'
@@ -23,6 +23,7 @@ app.get('/', async (req, res) => {
     let reply = 'make a new list or join a list'
     let items = null
     let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
     if ( cookie ) {
       items = await db.getitems(cookie)
       reply = 'hello here is your list: '
@@ -37,13 +38,13 @@ app.get('/del', (req,res) => {
   res.render('index', { title: 'delete', message: 'deleted cookie' })
 })
 
-app.get('/make', (req, res) => { 
+app.get('/make/:name', (req, res) => { 
     // read cookies
     if (!req.cookies[ckn]) {
       
       let identifier = shortid.generate()
-      let name = 'a generic list name'
-    
+      let name = req.params.name
+
       db.insertlist(name, identifier)
       //set cookie
       res.cookie( ckn, identifier )
@@ -63,23 +64,33 @@ app.post('/newitem', (req, res) => {
   db.insertitem(req.body.name, req.body.state, req.body.amount, req.body.imp, req.body.list)
 })
 
-app.get('/*', async (req, res) => {
+app.get('/join/:list', async (req, res) => {
+
   let cookie = req.cookies['dosmerlist']
-  let url = req.url.slice(1)
-  let valid = shortid.isValid(url)
+  let list = req.params.username
+  let valid = shortid.isValid(list)
 
   //if no cookie and url is valid and in db
   if (valid && valid != cookie) {
-     let indb =  await db.checklist(url) 
-     if ( indb[0].exists ) {
-        res.cookie( ckn, url )
-        res.redirect('/')
-     }
-  } 
 
+      let indb =  await db.checklist(list) 
+      if ( indb[0].exists ) {
+         res.cookie( ckn, list )
+         res.redirect('/')
+      } else {
+         console.log('is valid but does not exits')
+         res.redirect('/404')
+      } 
+
+  } else {
+    res.redirect('/404')
+  }
   //res.render('index', { title: 'wildcard', message: 'shortid :'  + url + ' is : '  + valid + ' cookie: '+ cookie })
 })
 
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!")
+})
 
 
 app.listen(port, () => console.log(`Dosmer app listening on port ${port}!`))

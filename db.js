@@ -10,7 +10,7 @@ const initlist = require('./initlist.json')
 exports.log = async function log(res) {
     try {
         const client = await pool.connect()
-        const result = await client.query('SELECT * FROM items')
+        const result = await client.query('SELECT * FROM lists')
         const results = { 'results': (result) ? result.rows : null}
         res.send( results )
         client.release()
@@ -57,7 +57,7 @@ exports.insertitem = async function insertitem(name, state, amount, imp, list) {
 exports.updateitem = async function updateitem(name, state, amount, imp, list, id) {
 
     imp++
-    
+
     try {
         const client = await pool.connect()
         let q = "UPDATE items SET name = '" + name + "', state = " + state + ", amount = " + amount + ", imp = " + imp + " WHERE id = " + id 
@@ -80,9 +80,10 @@ exports.getitems = async function getitems(list) {
         
         const result = await client.query(q) 
         const results = (result) ? result.rows : null
-        return results;     
+       
         client.release() 
-
+        return results;     
+        
     } catch (err) {
         console.error(err)
     }
@@ -95,9 +96,11 @@ exports.checklist = async function(list) {
         let q = "SELECT EXISTS(SELECT 1 FROM lists WHERE identifier = '" + list + "')"
         
         const result = await client.query(q) 
+ 
+        client.release() 
         return result.rows
 
-        client.release() 
+ 
 
     } catch (err) {
         console.error(err)

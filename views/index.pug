@@ -4,8 +4,6 @@ html
   body
     h1= message
 
-
-
     div(class="itemlist")
       if list    
         each item in list
@@ -18,4 +16,4 @@ html
 
     h3='del liste'
     if list
-      p= urlto  + list[0].list
+      p= urlto  + 'join/' +  list[0].list
