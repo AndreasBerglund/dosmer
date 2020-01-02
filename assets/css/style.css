@@ -101,5 +101,24 @@ body, html {
   border-radius: 100px;
   margin-top: -45px;
   text-align: center;
+  position: relative;
+}
+
+.menu button.newitem:after, .menu button.newitem:before {
+  content: "";
+  width: 50%;
+  height: 4px;
+  border-radius: 2px;
+  background: #202020;
+  display: block;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.menu button.newitem:after {
+  -webkit-transform: translateX(-50%) rotate(90deg);
+          transform: translateX(-50%) rotate(90deg);
 }
 /*# sourceMappingURL=style.css.map */
