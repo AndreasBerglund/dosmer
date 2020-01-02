@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
       items.sort((a, b) => (a.imp > b.imp) ? 1 : -1)
       items.sort((a, b) => b.state - a.state )
     } 
-    res.render('index', { title: 'Hey', message: reply, list: items, button : 'new list', urlto: fullUrl  })
+    res.render('index', { title: 'Dosmer', message: reply, list: items, button : 'new list', urlto: fullUrl  })
 })
 
 app.get('/del', (req,res) => {
