@@ -67,7 +67,7 @@ app.post('/newitem', (req, res) => {
 app.get('/join/:list', async (req, res) => {
 
   let cookie = req.cookies['dosmerlist']
-  let list = req.params.username
+  let list = req.params.list
   let valid = shortid.isValid(list)
 
   //if no cookie and url is valid and in db
