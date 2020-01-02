@@ -63,7 +63,7 @@
             
         })
 
-        $('.item').find('input').on('change', function(e){
+        $('.item').find('input, select').on('change', function(e){
       
             updateItem($(e.target).parent('.item'))
         
@@ -73,6 +73,7 @@
             let newitem = $('.item').last().clone(true, true)
             updateItem(newitem, 1)
             newitem.appendTo('.itemlist')
+            newitem.find('input[type=text]').focus()
         })
     });
 

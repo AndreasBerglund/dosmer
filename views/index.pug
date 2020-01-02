@@ -6,14 +6,15 @@ html
 
     div(class="itemlist")
       if list    
-        each item in list
-          include item.pug
+      each item in list
+        include item.pug
 
-    button( class="newitem button")="nyt indkøb"
-
-        if button
+    if button
     a(href="/make")= button
 
     h3='del liste'
+
     if list
-      p= urlto  + 'join/' +  list[0].list
+    p= urlto  + 'join/' +  list[0].list
+    div(class="menu") 
+      button( class="newitem button")="+"
