@@ -71,21 +71,30 @@ app.get('/join/:list', async (req, res) => {
   let valid = shortid.isValid(list)
 
   //if no cookie and url is valid and in db
-  if (valid && valid != cookie) {
+  if (valid) {
 
-      let indb =  await db.checklist(list) 
-      if ( indb[0].exists ) {
-         res.cookie( ckn, list )
-         res.redirect('/')
+      if (valid != cookie) {
+        //if not an existing cookie check db and make new
+        let indb =  await db.checklist(list) 
+        if ( indb[0].exists ) {
+            //set in cookie and in db
+            res.cookie( ckn, list )
+            res.redirect('/')
+        } else {
+            //not in db
+            res.redirect('/404')
+        } 
       } else {
-         console.log('is valid but does not exits')
-         res.redirect('/404')
-      } 
+        //if valid and cookie already exits
+        res.redirect('/')
+      }
+
 
   } else {
+    //not valid list id
     res.redirect('/404')
   }
-  //res.render('index', { title: 'wildcard', message: 'shortid :'  + url + ' is : '  + valid + ' cookie: '+ cookie })
+
 })
 
 app.use(function (req, res, next) {
