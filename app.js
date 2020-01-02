@@ -47,7 +47,7 @@ app.get('/make/:name', (req, res) => {
 
       db.insertlist(name, identifier)
       //set cookie
-      res.cookie( ckn, identifier )
+      res.cookie( ckn, identifier, { maxAge : 1000 * 60 * 60 * 24 * 365 * 20 } )
     }
 
     res.send('Made a list')
@@ -78,7 +78,7 @@ app.get('/join/:list', async (req, res) => {
         let indb =  await db.checklist(list) 
         if ( indb[0].exists ) {
             //set in cookie and in db
-            res.cookie( ckn, list )
+            res.cookie( ckn, list, { maxAge : 1000 * 60 * 60 * 24 * 365 * 10 } )
             res.redirect('/')
         } else {
             //not in db
