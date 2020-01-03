@@ -15,7 +15,7 @@ body, html {
 
 .item {
     background-color: $lgrey;
-    padding: 1rem;
+    padding: 1rem; padding-right: 0;
     margin:  .5rem ;
     position: relative;
     border-radius: 8px;
@@ -29,10 +29,13 @@ body, html {
         content: "";
         position: absolute;
         top: 50%; transform: translateY(-50%);
-        right: 1rem;
-        width: 24px; height: 24px;
+        right: 0; border-radius: 0 8px 8px 0 ;
+        width: 60px; height: 100%;
+        background-repeat: no-repeat;
+        background-color: $dbrown;
+        background-position: center;
         background-image: url('../images/accept-circular-button-outline.svg');
-        background-size: contain;
+        background-size: 24px;
         opacity: .3;
     }
 
@@ -59,7 +62,10 @@ body, html {
     }
 
     select {
-        background-color: transparent;
+        background-color: $dbrown;
+        color: $yellow;
+        border-radius: 8px;
+        margin-right: 20px;
         padding: 0px;
         border: 1px solid transparent;
         font-family: 'Kulim Park', sans-serif;

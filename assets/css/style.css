@@ -8,6 +8,7 @@ body, html {
 .item {
   background-color: #E5EAE5;
   padding: 1rem;
+  padding-right: 0;
   margin: .5rem;
   position: relative;
   border-radius: 8px;
@@ -29,11 +30,15 @@ body, html {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  right: 1rem;
-  width: 24px;
-  height: 24px;
+  right: 0;
+  border-radius: 0 8px 8px 0;
+  width: 60px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-color: #524C3A;
+  background-position: center;
   background-image: url("../images/accept-circular-button-outline.svg");
-  background-size: contain;
+  background-size: 24px;
   opacity: .3;
 }
 
@@ -59,7 +64,10 @@ body, html {
 }
 
 .item select {
-  background-color: transparent;
+  background-color: #524C3A;
+  color: #ffc919;
+  border-radius: 8px;
+  margin-right: 20px;
   padding: 0px;
   border: 1px solid transparent;
   font-family: 'Kulim Park', sans-serif;
