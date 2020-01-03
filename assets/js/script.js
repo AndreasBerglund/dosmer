@@ -21,7 +21,11 @@
             //update via ajax
             $.ajax({
                 url: url,
-                type: "POST",
+                type: "POST",  
+                async: true,
+                headers: {
+                    "cache-control": "no-cache"
+                },
                 data: JSON.stringify({
                     "id" : id,
                     "name" : name,
