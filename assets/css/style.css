@@ -8,7 +8,7 @@ body, html {
 .item {
   background-color: #E5EAE5;
   padding: 1rem;
-  margin: 1rem;
+  margin: .5rem;
   position: relative;
   border-radius: 8px;
   display: -webkit-box;
