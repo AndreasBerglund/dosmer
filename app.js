@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser')
 const shortid = require('shortid')
 const ckn = 'dosmerlist'
 const db = require('./db.js')
-const bodyParser = require('body-parser');
+const helper = require('./helper.js')
+const bodyParser = require('body-parser')
 
 app.use(cookieParser())
 app.set('view engine', 'pug')
@@ -26,12 +27,14 @@ app.get('/', async (req, res) => {
 
     if ( cookie ) {
       items = await db.getitems(cookie)
+      items = helper.sorter(items)
       reply = ''
-      items.sort((a, b) => (a.imp > b.imp) ? 1 : -1)
-      items.sort((a, b) => b.state - a.state )
+
     } 
     res.render('index', { title: 'Dosmer', message: reply, list: items, button : 'new list', urlto: fullUrl  })
 })
+
+
 
 app.get('/del', (req,res) => {
   res.clearCookie(ckn)

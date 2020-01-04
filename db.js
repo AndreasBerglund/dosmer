@@ -100,12 +100,8 @@ exports.checklist = async function(list) {
         client.release() 
         return result.rows
 
- 
 
     } catch (err) {
         console.error(err)
     }
-
 }
-
-exports.test = 'hello db'
