@@ -77,8 +77,8 @@ body, html {
 
 .menu-container {
     position: fixed;
-    bottom: -140px; left: 0;
-    width: 100%; height: 108px;
+    bottom: -150px; left: 0;
+    width: 100%; height: 106px;
     background: red;
     transition: all .25s ease-in;
     
@@ -131,8 +131,10 @@ body, html {
     .search-container {
         width: 100%; height: auto;
         background: $lbrown;
-        padding: 1rem;
+        
         input {
+            padding: 1rem;
+            width: 100%;
             background: transparent;
             border: none;
         }
