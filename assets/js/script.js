@@ -50,8 +50,10 @@
             let item = $(this)
             item.toggleClass('on')
 
-            let checkBox = item.find('input[type=checkbox]')
+            let checkBox = item.find('input[type=checkbox]')   
             checkBox.prop("checked", !checkBox.prop("checked"))
+
+            live_sort(item)
             
             updateItem(item)
 
@@ -77,8 +79,39 @@
             let newitem = $('.item').last().clone(true, true)
             updateItem(newitem, 1)
             newitem.appendTo('.itemlist')
+            newitem.find('input[type=text').val('')
             newitem.find('input[type=text]').focus()
         })
+
+
+        function live_sort(item) {
+          
+            let state = item.find('input[name=state]').prop('checked')
+            let $siblings = item.siblings()
+
+            if ( !state ) {
+                //move down
+                $siblings.each(function(){
+                    
+                    if ( !$(this).find('input[name=state]').prop('checked') ) {
+                        console.log($(this).attr('id'))
+                        item.insertBefore( $(this) )
+                        return false
+                    }
+                })
+            } else {
+                //move up
+                $( $siblings.get().reverse() ).each(function() {
+                    if ( $(this).find('input[name=state]').prop('checked') ) {
+                        item.insertAfter( $(this) )
+                        return false
+                    }
+                })
+            }
+ 
+        }
+
+
     });
 
 })(jQuery);
