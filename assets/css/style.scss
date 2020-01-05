@@ -131,9 +131,9 @@ body, html {
 }
 
 .search-container {
-    width: 100%; height: auto;
-    background: $lbrown;
-    
+    width: auto; height: auto;
+    background: $lgrey;
+    margin: .5rem;
     input {
         padding: 1rem;
         width: 100%;
