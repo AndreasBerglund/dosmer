@@ -92,9 +92,7 @@
             if ( !state ) {
                 //move down
                 $siblings.each(function(){
-                    
                     if ( !$(this).find('input[name=state]').prop('checked') ) {
-                        console.log($(this).attr('id'))
                         item.insertBefore( $(this) )
                         return false
                     }
