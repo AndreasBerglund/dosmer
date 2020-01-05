@@ -109,6 +109,24 @@
  
         }
 
+        //scroll
+        let lastScrollTop = 0, delta = 5, $menu = $('.menu-container');
+        $(window).scroll(function(event){
+           let st = $(this).scrollTop();
+           
+           if(Math.abs(lastScrollTop - st) <= delta)
+              return;
+           
+           if (st > lastScrollTop){
+               // downscroll code
+               $menu.removeClass('show')
+           } else {
+              // upscroll code
+              $menu.addClass('show')
+           }
+           lastScrollTop = st;
+        });
+
 
     });
 

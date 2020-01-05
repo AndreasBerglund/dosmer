@@ -16,5 +16,8 @@ html
 
     if list
       p= urlto  + 'join/' +  list[0].list
-    div(class="menu") 
-      button( class="newitem button")
+    div(class="menu-container show") 
+      div(class="menu")
+        button( class="newitem button")
+      div(class="search-container")
+        input(type="text" id="search" placeholder="Søg")
