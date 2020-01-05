@@ -127,6 +127,19 @@
            lastScrollTop = st;
         });
 
+        //search filter
+        $('#search').keyup(function() {
+            let val = $(this).val().toLowerCase()
+            $('.item').each(function() {
+                let item = $(this)
+              
+                if ( item.children('input[name=name]').val().toLowerCase().indexOf(val) > -1 ) {
+                    item.show()
+                } else {
+                    item.hide()
+                }
+            })
+        })
 
     });
 
