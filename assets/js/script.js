@@ -39,14 +39,11 @@
                 success: function(data) {
             
                     if (toggle) {
-                        setTimeout(function(){
-                            item.toggleClass('on')
-                            item.removeClass('active')
-                            live_sort(item) 
+                        
+                        item.toggleClass('on')
+                        item.removeClass('active')
+                        live_sort(item) 
 
-                        },2000)
-                     
-                    
                     }
                     
                 },
