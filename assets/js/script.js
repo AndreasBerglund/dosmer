@@ -2,7 +2,7 @@
     console.log('dosmer');
     $(document).ready(function() {
 
-        function updateItem(item, newitem=0) {
+        function updateItem(item, newitem=0, toggle=false) {
 
             let textBox = item.find('input[name=name]')
             let amountBox = item.find('select')
@@ -33,14 +33,29 @@
                     "amount" : amount,
                     "imp" : imp,
                     "list" : list
-
                 }),
                 dataType : "json",
                 contentType: "application/json",
-                success: function(response, status, http) {
-                    if (response) {
-                            console.log('AJAX worked!')
+                success: function(data) {
+            
+                    if (toggle) {
+                        setTimeout(function(){
+                            item.toggleClass('on')
+                            item.removeClass('active')
+                            live_sort(item) 
+
+                        },2000)
+                     
+                    
                     }
+                    
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err);
+                  },
+                complete : function() {
+                    console.log('call complete')
                 }
             });
         }
@@ -48,14 +63,12 @@
         $('.item').click(function(e) {
             
             let item = $(this)
-            item.toggleClass('on')
+            item.toggleClass('active')
 
             let checkBox = item.find('input[type=checkbox]')   
             checkBox.prop("checked", !checkBox.prop("checked"))
-
-            live_sort(item)
             
-            updateItem(item)
+            updateItem(item, 0, true)
 
         });
 

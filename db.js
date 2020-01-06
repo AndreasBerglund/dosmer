@@ -64,6 +64,7 @@ exports.updateitem = async function updateitem(name, state, amount, imp, list, i
         //console.log(q)
         const result = await client.query(q) 
         //console.log(result)
+        return result
         client.release() 
 
     } catch (err) {

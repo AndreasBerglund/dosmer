@@ -58,7 +58,8 @@ app.get('/make/:name', (req, res) => {
 
 
 app.post('/updateitem', (req, res) => {
-  db.updateitem(req.body.name, req.body.state, req.body.amount, req.body.imp, req.body.list, req.body.id)
+  let result = db.updateitem(req.body.name, req.body.state, req.body.amount, req.body.imp, req.body.list, req.body.id)
+  res.json(result);
 })
 
 
