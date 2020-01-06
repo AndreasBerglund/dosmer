@@ -61,11 +61,9 @@ exports.updateitem = async function updateitem(name, state, amount, imp, list, i
     try {
         const client = await pool.connect()
         let q = "UPDATE items SET name = '" + name + "', state = " + state + ", amount = " + amount + ", imp = " + imp + " WHERE id = " + id 
-        //console.log(q)
         const result = await client.query(q) 
-        //console.log(result)
-        return result
         client.release() 
+        return result
 
     } catch (err) {
         console.error(err)
