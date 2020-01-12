@@ -14,7 +14,6 @@ app.set('view engine', 'pug')
 app.use(express.static('assets'))
 app.use(bodyParser.json())
 
-
 app.get('/db', async (req, res) => {
     db.log(res)
 })
@@ -59,13 +58,14 @@ app.get('/make/:name', (req, res) => {
 
 app.post('/updateitem', (req, res) => {
   let result = db.updateitem(req.body.name, req.body.state, req.body.amount, req.body.imp, req.body.list, req.body.id)
-  res.json(result);
+  res.json({ 'id' : result });
 })
 
 
-app.post('/newitem', (req, res) => {
+app.post('/newitem', async (req, res) => {
   //id is ignored
-  db.insertitem(req.body.name, req.body.state, req.body.amount, req.body.imp, req.body.list)
+  let result = await db.insertitem(req.body.name, req.body.state, req.body.amount, req.body.imp, req.body.list)
+  res.json({ 'id' : result });
 })
 
 app.get('/join/:list', async (req, res) => {

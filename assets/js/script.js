@@ -45,6 +45,11 @@
                         live_sort(item) 
 
                     }
+
+                    //console.log(data)
+                    if (newitem == 1) {
+                        item.attr('data-id', data.id )
+                    } 
                     
                 },
                 error: function(xhr, status, error) {
@@ -57,38 +62,46 @@
             });
         }
 
-        $('.item').click(function(e) {
-            
-            let item = $(this)
-            item.toggleClass('active')
+        function bind_listeners() {
 
-            let checkBox = item.find('input[type=checkbox]')   
-            checkBox.prop("checked", !checkBox.prop("checked"))
-            
-            updateItem(item, 0, true)
 
-        });
+            $('.item').click(function(e) {
+            
+                let item = $(this)
+                item.toggleClass('active')
+    
+                let checkBox = item.find('input[type=checkbox]')   
+                checkBox.prop("checked", !checkBox.prop("checked"))
+                
+                updateItem(item, 0, true)
+    
+            });
+    
+            $('.item').find('input, select').click(function(e){
+                
+                e.stopPropagation();
+                
+                if(e.target.type == 'checkbox') {
+                    $(this).parent('.item').toggleClass('on')
+                }
+                
+            })
+    
+            $('.item').find('input, select').on('change', function(e){
+          
+                updateItem($(e.target).parent('.item'))
+            
+            })
+    
+        }
 
-        $('.item').find('input, select').click(function(e){
-            
-            e.stopPropagation();
-            
-            if(e.target.type == 'checkbox') {
-                $(this).parent('.item').toggleClass('on')
-            }
-            
-        })
-
-        $('.item').find('input, select').on('change', function(e){
-      
-            updateItem($(e.target).parent('.item'))
-        
-        })
+        bind_listeners();
 
         $('button.newitem').click(function(){
             let newitem = $('.item').last().clone(true, true)
             updateItem(newitem, 1)
             newitem.appendTo('.itemlist')
+            
             newitem.find('input[type=text').val('')
             newitem.find('input[type=text]').focus()
         })

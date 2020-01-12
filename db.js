@@ -43,10 +43,11 @@ exports.insertitem = async function insertitem(name, state, amount, imp, list) {
 
     try {
         const client = await pool.connect()
-        let q = "INSERT INTO items(name, state, amount, imp, list) VALUES ('" + name + "'," + state + ", " + amount + ", " + imp + ", '" + list + "')"   
+        let q = "INSERT INTO items(name, state, amount, imp, list) VALUES ('" + name + "'," + state + ", " + amount + ", " + imp + ", '" + list + "') RETURNING id;"   
         const result = await client.query(q) 
-             
+        //console.log(result.rows[0].id)
         client.release() 
+        return result.rows[0].id
 
     } catch (err) {
         console.error(err)
@@ -63,7 +64,7 @@ exports.updateitem = async function updateitem(name, state, amount, imp, list, i
         let q = "UPDATE items SET name = '" + name + "', state = " + state + ", amount = " + amount + ", imp = " + imp + " WHERE id = " + id 
         const result = await client.query(q) 
         client.release() 
-        return result
+        return result.rows
 
     } catch (err) {
         console.error(err)
