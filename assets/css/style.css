@@ -137,7 +137,7 @@ body, html {
   box-shadow: 0px 0.1px 14px -4px rgba(0, 0, 0, 0.29);
 }
 
-.menu-container .menu button {
+.menu-container .menu .button {
   background: #84dcc6;
   border: none;
   text-align: center;
@@ -148,21 +148,21 @@ body, html {
   font-size: 36px;
 }
 
-.menu-container .menu button.big {
+.menu-container .menu .button.big {
   width: 80px;
   height: 80px;
   border-radius: 100px;
   margin-top: -60px;
 }
 
-.menu-container .menu button.small {
+.menu-container .menu .button.small {
   width: 60px;
   height: 60px;
   border-radius: 100px;
   margin-top: -60px;
 }
 
-.menu-container .menu button.newitem:after, .menu-container .menu button.newitem:before {
+.menu-container .menu .button.newitem:after, .menu-container .menu .button.newitem:before {
   content: "";
   width: 50%;
   height: 4px;
@@ -175,12 +175,12 @@ body, html {
           transform: translateX(-50%);
 }
 
-.menu-container .menu button.newitem:after {
+.menu-container .menu .button.newitem:after {
   -webkit-transform: translateX(-50%) rotate(90deg);
           transform: translateX(-50%) rotate(90deg);
 }
 
-.menu-container .menu button.totop span {
+.menu-container .menu .button.totop span {
   background: #202020;
   display: block;
   position: absolute;
@@ -193,20 +193,20 @@ body, html {
   top: 20px;
 }
 
-.menu-container .menu button.totop span:first-child {
+.menu-container .menu .button.totop span:first-child {
   width: 50%;
   top: 50%;
   -webkit-transform: translateX(-50%) rotate(90deg);
           transform: translateX(-50%) rotate(90deg);
 }
 
-.menu-container .menu button.totop span:nth-child(2) {
+.menu-container .menu .button.totop span:nth-child(2) {
   left: 26px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-.menu-container .menu button.totop span:nth-child(3) {
+.menu-container .menu .button.totop span:nth-child(3) {
   left: 16px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
