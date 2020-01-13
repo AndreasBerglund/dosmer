@@ -17,10 +17,10 @@ html
     h3='del liste'
 
     if list
-      p= urlto  + 'join/' +  list[0].list
+      input( type="text" name="hiddenurl" id="hiddenurl" value=urlto  + 'join/' +  list[0].list)
     div(class="menu-container show") 
       div(class="menu")
-        div( class="share button round small")
+        div( class="share button round small")='del'
         div( class="newitem button round big")
         div( class="totop button round small")
           span 

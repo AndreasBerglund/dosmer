@@ -130,17 +130,21 @@ body, html {
             text-align: center;
             position: relative;
             margin-left: 10px; margin-right: 10px;
-            font-weight: 700;
-            font-size: 36px;
+            font-weight: 100;
+            font-size: 12px;
+            text-transform: uppercase;
+       
 
             &.big {
                 width: 80px; height: 80px; border-radius: 100px;
                 margin-top: -60px;
+                line-height: 80px;
             }
 
             &.small {
                 width: 60px; height: 60px; border-radius: 100px;
                 margin-top: -60px;
+                line-height: 60px;
         
             }
 

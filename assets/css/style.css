@@ -144,8 +144,9 @@ body, html {
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
-  font-weight: 700;
-  font-size: 36px;
+  font-weight: 100;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .menu-container .menu .button.big {
@@ -153,6 +154,7 @@ body, html {
   height: 80px;
   border-radius: 100px;
   margin-top: -60px;
+  line-height: 80px;
 }
 
 .menu-container .menu .button.small {
@@ -160,6 +162,7 @@ body, html {
   height: 60px;
   border-radius: 100px;
   margin-top: -60px;
+  line-height: 60px;
 }
 
 .menu-container .menu .button.newitem:after, .menu-container .menu .button.newitem:before {

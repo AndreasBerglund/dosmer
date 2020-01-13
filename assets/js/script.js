@@ -134,8 +134,27 @@
 
         //scroll
         $('.totop').click(function(){
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            $('html, body').animate({scrollTop:0},'50');
         });
+
+        //share link
+        $('.share').click(function(){
+            copyLink()
+        });
+        function copyLink() {
+            /* Get the text field */
+            var copyText = document.getElementById("hiddenurl");
+          
+            /* Select the text field */
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+          
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+          
+            /* Alert the copied text */
+            alert("Din liste kan nu sættes ind i en besked: " + copyText.value);
+        }
 
         //search filter
         $('#search').keyup(function() {
