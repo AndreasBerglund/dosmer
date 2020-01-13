@@ -6,7 +6,7 @@ body, html {
 }
 
 .item {
-  background-color: #E5EAE5;
+  background-color: rgba(165, 255, 214, 0.5);
   padding: 1rem;
   padding-right: 0;
   margin: .5rem;
@@ -35,7 +35,7 @@ body, html {
   width: 70px;
   height: 100%;
   background-repeat: no-repeat;
-  background-color: #524C3A;
+  background-color: #84dcc6;
   background-position: center;
   background-image: url("../images/accept-circular-button-outline.svg");
   background-size: 24px;
@@ -68,7 +68,7 @@ body, html {
 }
 
 .item.on {
-  background-color: #ffc919;
+  background-color: #ffa69e;
 }
 
 .item.on:after {
@@ -106,7 +106,6 @@ body, html {
   left: 0;
   width: 100%;
   height: 60px;
-  background: red;
   -webkit-transition: all .25s ease-in;
   transition: all .25s ease-in;
 }
@@ -120,7 +119,7 @@ body, html {
 .menu-container .menu {
   width: 100%;
   height: 60px;
-  background: #524C3A;
+  background: #ff686b;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,17 +137,29 @@ body, html {
   box-shadow: 0px 0.1px 14px -4px rgba(0, 0, 0, 0.29);
 }
 
-.menu-container .menu button.newitem {
-  width: 80px;
-  height: 80px;
-  background: #ffc919;
-  font-weight: 700;
-  font-size: 36px;
+.menu-container .menu button {
+  background: #84dcc6;
   border: none;
-  border-radius: 100px;
-  margin-top: -60px;
   text-align: center;
   position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.menu-container .menu button.big {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  margin-top: -60px;
+}
+
+.menu-container .menu button.small {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  margin-top: -60px;
 }
 
 .menu-container .menu button.newitem:after, .menu-container .menu button.newitem:before {
@@ -169,10 +180,42 @@ body, html {
           transform: translateX(-50%) rotate(90deg);
 }
 
+.menu-container .menu button.totop span {
+  background: #202020;
+  display: block;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 30%;
+  height: 4px;
+  border-radius: 2px;
+  top: 20px;
+}
+
+.menu-container .menu button.totop span:first-child {
+  width: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) rotate(90deg);
+          transform: translateX(-50%) rotate(90deg);
+}
+
+.menu-container .menu button.totop span:nth-child(2) {
+  left: 26px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.menu-container .menu button.totop span:nth-child(3) {
+  left: 16px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
 .search-container {
   width: auto;
   height: auto;
-  background: #E5EAE5;
+  background: #a5ffd6;
   margin: .5rem;
 }
 

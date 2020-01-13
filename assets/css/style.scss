@@ -1,20 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Kulim+Park:300,400,700&display=swap');
 
-$dbrown: #524C3A;
-$lbrown: #DBCFA4;
-$yellow: rgb(255, 201, 25);
-$lgrey: #E5EAE5;
-$mgrey: #9B9995;
+
+
+
+$color1: rgba(255, 255, 255, 1);
+$color2: rgba(132, 220, 198, 1);
+$color3: rgba(165, 255, 214, 1);
+$color4: rgba(255, 166, 158, 1);
+$color5: rgba(255, 104, 107, 1);
+
+$dbrown: $color5;
+$lbrown: $color2;
+$yellow: $color2;
+$lgrey: $color3;
+$mgrey: $color5;
 
 body, html {
 
+   // background-color: $color1;
     margin: 0;
     padding: 0;
     font-family: 'Kulim Park', sans-serif;
 }
 
 .item {
-    background-color: $lgrey;
+    background-color: rgba($lgrey, .5);
     padding: 1rem; padding-right: 0;
     margin:  .5rem ;
     position: relative;
@@ -32,7 +42,7 @@ body, html {
         right: 0; border-radius: 0 8px 8px 0 ;
         width: 70px; height: 100%;
         background-repeat: no-repeat;
-        background-color: $dbrown;
+        background-color: $color2;
         background-position: center;
         background-image: url('../images/accept-circular-button-outline.svg');
         background-size: 24px;
@@ -53,7 +63,7 @@ body, html {
     }
 
     &.on {
-        background-color: $yellow;
+        background-color: $color4;
         &:after {
             opacity: 1;
             background-image: url('../images/shopping-cart.svg');
@@ -91,7 +101,7 @@ body, html {
     position: fixed;
     bottom: -150px; left: 0;
     width: 100%; height: 60px;
-    background: red;
+ 
     transition: all .25s ease-in;
     
     &.show {
@@ -113,28 +123,65 @@ body, html {
         -moz-box-shadow: 0px 0.1px 14px -4px rgba(0,0,0,0.29);
         box-shadow: 0px 0.1px 14px -4px rgba(0,0,0,0.29);
     
-        button.newitem {
-            width: 80px; height: 80px;
-            background : $yellow;
-            font-weight: 700;
-            font-size: 36px;
+        button  {
+
+            background : $color2;
             border: none;
-            border-radius: 100px;
-            margin-top: -60px;
             text-align: center;
             position: relative;
-            
-            &:after, &:before {
-                content: "";
-                width: 50%; height: 4px;
-                border-radius: 2px;
-                background: #202020;
-                display: block;
-                position: absolute; left: 50%; transform: translateX(-50%);
+            margin-left: 10px; margin-right: 10px;
+            font-weight: 700;
+            font-size: 36px;
+
+            &.big {
+                width: 80px; height: 80px; border-radius: 100px;
+                margin-top: -60px;
             }
-    
-            &:after {
-                transform: translateX(-50%) rotate(90deg);
+
+            &.small {
+                width: 60px; height: 60px; border-radius: 100px;
+                margin-top: -60px;
+        
+            }
+
+            &.newitem {
+
+            
+                &:after, &:before {
+                    content: "";
+                    width: 50%; height: 4px;
+                    border-radius: 2px;
+                    background: #202020;
+                    display: block;
+                    position: absolute; left: 50%; transform: translateX(-50%);
+                }
+        
+                &:after {
+                    transform: translateX(-50%) rotate(90deg);
+                }
+            }
+
+            &.totop {
+                span {
+                    background: #202020;
+                    display: block;
+                    position: absolute; left: 50%; transform: translateX(-50%);
+                    width: 30%; height: 4px;
+                    border-radius: 2px;
+                    top: 20px;
+                    &:first-child {
+                        width: 50%;
+                        top: 50%;
+                        transform: translateX(-50%) rotate(90deg) ;
+                    }
+                    &:nth-child(2) {
+                        left: 26px;transform: rotate(45deg) ;
+                    }
+                    &:nth-child(3) {
+                        left: 16px;
+                        transform: rotate(-45deg) ;
+                    }
+                }
             }
         }
     
