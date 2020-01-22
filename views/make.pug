@@ -1,0 +1,7 @@
+html
+  include head.pug
+  body
+    h1= title
+    p= content
+    if link 
+        a(href="/make?force=true")= "Lav en liste"

@@ -1,6 +1,5 @@
 html
   include head.pug
-
   body
     h1= message
     div(class="search-container")
@@ -10,11 +9,6 @@ html
       if list    
         each item in list
           include item.pug
-
-    if button
-    a(href="/make")= button
-
-    h3='del liste'
 
     if list
       input( type="text" name="hiddenurl" id="hiddenurl" value=urlto  + 'join/' +  list[0].list)

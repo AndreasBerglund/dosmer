@@ -20,7 +20,6 @@ app.get('/db', async (req, res) => {
 
 app.get('/', async (req, res) => {
     let cookie = req.cookies[ckn]
-    let reply = 'make a new list or join a list'
     let items = null
     let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 
@@ -28,31 +27,40 @@ app.get('/', async (req, res) => {
       items = await db.getitems(cookie)
       items = helper.sorter(items)
       reply = ''
+      res.render('index', { title: 'Dosmer', list: items, urlto: fullUrl  })
+    } else {
+      res.render('start')
+    }
 
-    } 
-    res.render('index', { title: 'Dosmer', message: reply, list: items, button : 'new list', urlto: fullUrl  })
 })
-
-
 
 app.get('/del', (req,res) => {
   res.clearCookie(ckn)
   res.render('index', { title: 'delete', message: 'deleted cookie' })
 })
 
-app.get('/make/:name', (req, res) => { 
+app.get('/make', (req, res) => { 
     // read cookies
-    if (!req.cookies[ckn]) {
+    let force = req.query.force
+
+    if ( !req.cookies[ckn] || force ) {
       
       let identifier = shortid.generate()
-      let name = req.params.name
+      let name = "Min fancy dosmerseddel"
 
+      res.clearCookie(ckn)
       db.insertlist(name, identifier)
       //set cookie
       res.cookie( ckn, identifier, { maxAge : 1000 * 60 * 60 * 24 * 365 * 20 } )
-    }
 
-    res.send('Made a list')
+      res.render('make', { title: 'Dosmer', content : 'Laver ny liste...' })
+
+    } else {
+
+      res.render('make', { title: 'Dosmer', content : 'Du har allerede en liste. Vil du lave en ny? ( advarsel, sletter den gamle )', link: true })
+  
+    }
+ 
 });
 
 
@@ -102,7 +110,7 @@ app.get('/join/:list', async (req, res) => {
 })
 
 app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!")
+  res.status(404).send("Det er desværre ikke på listen!")
 })
 
 

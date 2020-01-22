@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Kulim+Park:300,400,700&display=swap");
 body, html {
+  background-color: rgba(239, 239, 239, 0.1);
   margin: 0;
   padding: 0;
   font-family: 'Kulim Park', sans-serif;
 }
 
 .item {
-  background-color: rgba(165, 255, 214, 0.5);
+  background-color: white;
   padding: 1rem;
   padding-right: 0;
   margin: .5rem;
@@ -22,6 +23,8 @@ body, html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.01);
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.01);
 }
 
 .item:after {
@@ -35,11 +38,10 @@ body, html {
   width: 70px;
   height: 100%;
   background-repeat: no-repeat;
-  background-color: #84dcc6;
   background-position: center;
   background-image: url("../images/accept-circular-button-outline.svg");
   background-size: 24px;
-  opacity: .3;
+  opacity: 1;
 }
 
 .item.active:after {
@@ -67,12 +69,9 @@ body, html {
   }
 }
 
-.item.on {
-  background-color: #ffa69e;
-}
-
 .item.on:after {
   opacity: 1;
+  background-color: #ff686b;
   background-image: url("../images/shopping-cart.svg");
 }
 
@@ -86,11 +85,12 @@ body, html {
   border: none;
   font-family: 'Kulim Park', sans-serif;
   font-size: 18px;
+  color: #303030;
 }
 
 .item select {
   background-color: transparent;
-  color: #202020;
+  color: #303030;
   border-radius: 8px;
   margin-right: -10px;
   padding: 0px;
@@ -119,7 +119,7 @@ body, html {
 .menu-container .menu {
   width: 100%;
   height: 60px;
-  background: #ff686b;
+  background: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,15 +138,16 @@ body, html {
 }
 
 .menu-container .menu .button {
-  background: #84dcc6;
-  border: none;
+  background: white;
+  border: 3px solid #ff686b;
+  color: #ff686b;
   text-align: center;
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
-  font-weight: 100;
+  font-weight: 900;
   font-size: 12px;
-  text-transform: uppercase;
+  text-transform: normal;
 }
 
 .menu-container .menu .button.big {
@@ -168,10 +169,10 @@ body, html {
 .menu-container .menu .button.newitem:after, .menu-container .menu .button.newitem:before {
   content: "";
   width: 50%;
-  height: 4px;
+  height: 2px;
   top: 50%;
   border-radius: 2px;
-  background: #202020;
+  background: #ff686b;
   display: block;
   position: absolute;
   left: 50%;
@@ -185,14 +186,14 @@ body, html {
 }
 
 .menu-container .menu .button.totop span {
-  background: #202020;
+  background: #ff686b;
   display: block;
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   width: 30%;
-  height: 4px;
+  height: 2px;
   border-radius: 2px;
   top: 20px;
 }
@@ -205,13 +206,13 @@ body, html {
 }
 
 .menu-container .menu .button.totop span:nth-child(2) {
-  left: 26px;
+  left: 27px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
 .menu-container .menu .button.totop span:nth-child(3) {
-  left: 16px;
+  left: 15px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
@@ -219,7 +220,9 @@ body, html {
 .search-container {
   width: auto;
   height: auto;
-  background: #a5ffd6;
+  background: transparent;
+  border: 2px solid #ff686b;
+  border-radius: 4px;
   margin: .5rem;
 }
 
