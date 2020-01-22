@@ -23,8 +23,8 @@ body, html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.01);
-          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.01);
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .item:after {
