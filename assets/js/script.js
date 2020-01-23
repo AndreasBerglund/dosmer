@@ -5,13 +5,13 @@
         function updateItem(item, newitem=0, toggle=false) {
 
             let textBox = item.find('input[name=name]')
-            let amountBox = item.find('select')
+            let categoryBox = item.find('select')
             let checkBox = item.find('input[type=checkbox]')
           
             let id = item.attr('data-id')
             let name = textBox.val()
             let state = checkBox.prop('checked')
-            let amount = amountBox.val()
+            let category = categoryBox.val()
           
             let imp = item.attr('data-imp')
             let list = item.attr('data-list')
@@ -30,7 +30,7 @@
                     "id" : id,
                     "name" : name,
                     "state" : state,
-                    "amount" : amount,
+                    "category" : category,
                     "imp" : imp,
                     "list" : list
                 }),

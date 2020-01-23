@@ -96,8 +96,9 @@ body, html {
   padding: 0px;
   border: 1px solid transparent;
   font-family: 'Kulim Park', sans-serif;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: capitalize;
 }
 
 .menu-container {
@@ -231,5 +232,9 @@ body, html {
   width: 100%;
   background: transparent;
   border: none;
+}
+
+#hiddenurl {
+  visibility: hidden;
 }
 /*# sourceMappingURL=style.css.map */

@@ -7,6 +7,7 @@ const ckn = 'dosmerlist'
 const db = require('./db.js')
 const helper = require('./helper.js')
 const bodyParser = require('body-parser')
+const categories = require('./categories.json')
 
 app.use(cookieParser())
 app.set('view engine', 'pug')
@@ -27,7 +28,7 @@ app.get('/', async (req, res) => {
       items = await db.getitems(cookie)
       items = helper.sorter(items)
       reply = ''
-      res.render('index', { title: 'Dosmer', list: items, urlto: fullUrl  })
+      res.render('index', { title: 'Dosmer', list: items, urlto: fullUrl, cats: categories.categories  })
     } else {
       res.render('start')
     }
@@ -65,14 +66,14 @@ app.get('/make', (req, res) => {
 
 
 app.post('/updateitem', (req, res) => {
-  let result = db.updateitem(req.body.name, req.body.state, req.body.amount, req.body.imp, req.body.list, req.body.id)
+  let result = db.updateitem(req.body.name, req.body.state, req.body.imp, req.body.list, req.body.id, req.body.category)
   res.json({ 'id' : result });
 })
 
 
 app.post('/newitem', async (req, res) => {
   //id is ignored
-  let result = await db.insertitem(req.body.name, req.body.state, req.body.amount, req.body.imp, req.body.list)
+  let result = await db.insertitem(req.body.name, req.body.state, req.body.imp, req.body.list, req.body.category)
   res.json({ 'id' : result });
 })
 

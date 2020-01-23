@@ -29,7 +29,7 @@ exports.insertlist = async function insertlist(name, identifier) {
         client.release() 
 
         initlist.items.forEach(element => {
-            this.insertitem(element.name, element.state, element.amount, element.imp, identifier)
+            this.insertitem(element.name, element.state, element.imp, identifier, element.category)
         });
 
 
@@ -39,11 +39,11 @@ exports.insertlist = async function insertlist(name, identifier) {
 
 }
 
-exports.insertitem = async function insertitem(name, state, amount, imp, list) {
+exports.insertitem = async function insertitem(name, state, imp, list, category) {
 
     try {
         const client = await pool.connect()
-        let q = "INSERT INTO items(name, state, amount, imp, list) VALUES ('" + name + "'," + state + ", " + amount + ", " + imp + ", '" + list + "') RETURNING id;"   
+        let q = "INSERT INTO items(name, state, imp, list, category) VALUES ('" + name + "'," + state + ",  '" + imp + ", '" + list +  ", '" + category + "') RETURNING id;"   
         const result = await client.query(q) 
         //console.log(result.rows[0].id)
         client.release() 
@@ -55,13 +55,13 @@ exports.insertitem = async function insertitem(name, state, amount, imp, list) {
 
 }
 
-exports.updateitem = async function updateitem(name, state, amount, imp, list, id) {
+exports.updateitem = async function updateitem(name, state, imp, list, id, category) {
 
     imp++
 
     try {
         const client = await pool.connect()
-        let q = "UPDATE items SET name = '" + name + "', state = " + state + ", amount = " + amount + ", imp = " + imp + " WHERE id = " + id 
+        let q = "UPDATE items SET name = '" + name + "', state = " + state + ", imp = " + imp + ", category ='" + category + "' WHERE id = " + id 
         const result = await client.query(q) 
         client.release() 
         return result.rows

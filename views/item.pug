@@ -5,13 +5,13 @@ div(id="item-" + item.id class=item.state ? 'on item' : 'item' data-id=item.id d
         name='name'
         value=item.name
     ) 
-    - let n = 1
+
     select
-        while n < 21
-            if item.amount == n
-                option(value=n selected)=n++
+        each val in cats
+            if item.category == val
+                option(value=val selected)=val
             else 
-                option(value=n )=n++
+                option(value= val)=val
     if item.state
         input(
             type='checkbox'

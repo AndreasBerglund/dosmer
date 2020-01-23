@@ -90,8 +90,9 @@ body, html {
         padding: 0px;
         border: 1px solid transparent;
         font-family: 'Kulim Park', sans-serif;
-        font-size: 18px; 
-        font-weight: bold;  
+        font-size: 12px; 
+        font-weight: 300; 
+        text-transform: capitalize;
     }
 
 }
@@ -206,3 +207,6 @@ body, html {
     }
 }
 
+#hiddenurl {
+    visibility: hidden;
+}

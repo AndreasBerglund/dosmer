@@ -3,25 +3,25 @@
         {
             "name" : "Mælk",
             "state" : "false",
-            "amount" : "1",
+            "category" : "Køl og mejeri",
             "imp" : "1"
         },
         {
             "name" : "Smør",
             "state" : "false",
-            "amount" : "1",
+            "category" : "Køl og mejeri",
             "imp" : "1"
         },
         {
             "name" : "Rugbrød",
             "state" : "false",
-            "amount" : "1",
+            "category" : "Brød, kiks og kager",
             "imp" : "1"
         },
         {
             "name" : "Kartofler",
             "state" : "false",
-            "amount" : "1",
+            "category" : "Frugt og grønt",
             "imp" : "1"
         }
     ]
