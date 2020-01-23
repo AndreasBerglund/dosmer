@@ -86,13 +86,15 @@ body, html {
   font-family: 'Kulim Park', sans-serif;
   font-size: 18px;
   color: #303030;
+  max-width: 160px;
 }
 
 .item select {
   background-color: transparent;
   color: #303030;
   border-radius: 8px;
-  margin-right: -10px;
+  margin-right: 20px;
+  max-width: 100px;
   padding: 0px;
   border: 1px solid transparent;
   font-family: 'Kulim Park', sans-serif;
