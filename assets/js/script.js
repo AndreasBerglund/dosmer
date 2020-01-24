@@ -87,15 +87,9 @@
                 
             })
     
-            $('.item').find('input').on('change', function(e){
+            $('.item').find('input, select').on('change', function(e){
           
                 updateItem($(e.target).parent('.item'))
-            
-            })
-
-            $('.item').find('select').on('change', function(e){
-          
-                updateItem($(e.target).parent('.item'),0, true);
             
             })
     
