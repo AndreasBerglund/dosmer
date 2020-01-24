@@ -88,7 +88,10 @@
             })
     
             $('.item').find('input, select').on('change', function(e){
-          
+              
+                if ( e.target.type == 'select-one' ) {
+                    $(this).parent('.item').attr('data-cat', $(this).val())
+                }
                 updateItem($(e.target).parent('.item'))
             
             })
