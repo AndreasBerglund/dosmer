@@ -17,25 +17,27 @@ exports.sorter = function(items) {
 
 function sorter_categories(items) {
 
-    let found_categories = []
-    let sorted_items = [ { "name" : "Ikke til indkøb", "items" : [] } ]
-    let non_active = []
+    const json = require('./categories.json')
+    categories_objects = []
+    json.categories.forEach(cat => {
+        let obj = {"name" : cat, "items" : []}
+        categories_objects.push(obj)
+    })
+    categories_objects.push( { "name" : "Ikke til indkøb", "items" : [] } )
+
     items.forEach(element => {
         if ( element.state ) {
-            if ( !found_categories.includes(element.category) ) {
-                found_categories.push(element.category)
-                let cat_obj = { "name" : element.category, "items": [element] }
-                sorted_items.push(cat_obj)
-            } else {
-                let obj = sorted_items.find( x => x.name === element.category )
-                let index = sorted_items.indexOf(obj)
-                sorted_items[index].items.push( element )
-            }           
+         
+            let obj = categories_objects.find( x => x.name === element.category )
+            let index = categories_objects.indexOf(obj)
+            categories_objects[index].items.push( element )
+                    
         } else {
-            sorted_items[0].items.push ( element )
+
+            categories_objects[categories_objects.length - 1].items.push ( element )
         }
     });
 
-    return sorted_items.reverse()
+    return categories_objects
 
 }

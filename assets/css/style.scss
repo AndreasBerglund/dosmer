@@ -39,6 +39,10 @@ body, html {
             height: 1px; 
             position: absolute; left: 0; top: 50%; transform: translateY(-50%);
         }
+
+        &:only-child {
+            display: none;
+        }
     }
 }
 

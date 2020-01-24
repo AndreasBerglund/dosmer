@@ -25,6 +25,10 @@ body, html {
           transform: translateY(-50%);
 }
 
+.category-container h6:only-child {
+  display: none;
+}
+
 .item {
   background-color: white;
   padding: 1rem;
