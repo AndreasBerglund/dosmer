@@ -109,9 +109,15 @@
 
         function live_sort(item) {
           
-            let state = item.find('input[name=state]').prop('checked')
-            let $siblings = item.siblings()
-
+            let state = item.find('input[name=state]').prop('checked');
+            let $group = $('.category-container').last();
+           
+            if ( state ) {
+                $group = $('.category-container[data-cat="' + item.attr('data-cat') + '"]'); 
+            }
+            let $siblings = $group.find('.item');
+    
+        
             if ( !state ) {
                 //move down
                 $siblings.each(function(){
@@ -122,12 +128,16 @@
                 })
             } else {
                 //move up
-                $( $siblings.get().reverse() ).each(function() {
-                    if ( $(this).find('input[name=state]').prop('checked') ) {
-                        item.insertAfter( $(this) )
-                        return false
-                    }
-                })
+                if ( $siblings.length > 0 ) {
+                    $( $siblings.get().reverse() ).each(function() {
+                        if ( $(this).find('input[name=state]').prop('checked') ) {
+                            item.insertAfter( $(this) )
+                            return false
+                        }
+                    })
+                } else {
+                    item.appendTo($group)
+                }
             }
  
         }

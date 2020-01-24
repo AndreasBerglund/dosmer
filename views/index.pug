@@ -8,7 +8,7 @@ html
     div(class="itemlist")
       if list    
         each cat in list
-          div(class="category-container")
+          div(class="category-container" data-cat=cat.name)
             h6=cat.name
             each item in cat.items
               include item.pug
