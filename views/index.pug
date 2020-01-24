@@ -7,8 +7,11 @@ html
 
     div(class="itemlist")
       if list    
-        each item in list
-          include item.pug
+        each cat in list
+          div(class="category-container")
+            h6=cat.name
+            each item in cat.items
+              include item.pug
 
     if list
       input( type="text" name="hiddenurl" id="hiddenurl" value=urlto  + 'join/' +  list[0].list)

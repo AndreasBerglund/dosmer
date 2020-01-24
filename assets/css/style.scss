@@ -10,15 +10,36 @@ $dbrown: $color5;
 $lbrown: $color2;
 $yellow: $color2;
 $lgrey: #efefef;
-$mgrey: $color5;
+$mgrey: #ccc;
+
+$bg_color :  rgba($lgrey,.1);
 
 body, html {
 
-    background-color: rgba($lgrey,.1);
+    background-color: $bg_color;
     margin: 0;
     padding: 0;
     font-family: 'Kulim Park', sans-serif;
   
+}
+
+.category-container {
+    h6 {
+        text-align: center;
+        text-transform: uppercase;
+        //background: $bg_color;
+        color: $mgrey;
+        margin: 1.75rem 0;
+        position: relative;
+
+        &:after {
+            content: "";
+            width: 100%;
+            //background: $mgrey;
+            height: 1px; 
+            position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+        }
+    }
 }
 
 .item {

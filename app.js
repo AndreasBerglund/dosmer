@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
 
     if ( cookie ) {
       items = await db.getitems(cookie)
-      items = helper.sorter(items)
+      items = helper.sorter(items) //categories
       reply = ''
       res.render('index', { title: 'Dosmer', list: items, urlto: fullUrl, cats: categories.categories  })
     } else {
