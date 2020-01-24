@@ -87,7 +87,7 @@
                 
             })
     
-            $('.item').find('input, select').on('change', function(e){
+            $('.item').find('input').on('change', function(e){
           
                 updateItem($(e.target).parent('.item'))
             
