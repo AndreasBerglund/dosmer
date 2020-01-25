@@ -259,6 +259,6 @@ body, html {
 }
 
 #hiddenurl {
-  visibility: hidden;
+  opacity: 0;
 }
 /*# sourceMappingURL=style.css.map */
