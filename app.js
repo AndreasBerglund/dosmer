@@ -22,7 +22,7 @@ app.get('/db', async (req, res) => {
 app.get('/', async (req, res) => {
     let cookie = req.cookies[ckn]
     let items = null
-    let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl + 'join/' + cookie;
 
     if ( cookie ) {
       items = await db.getitems(cookie)
@@ -40,7 +40,7 @@ app.get('/del', (req,res) => {
   res.render('index', { title: 'delete', message: 'deleted cookie' })
 })
 
-app.get('/make', (req, res) => { 
+app.get('/make', async (req, res) => { 
     // read cookies
     let force = req.query.force
 
@@ -50,11 +50,13 @@ app.get('/make', (req, res) => {
       let name = "Min fancy dosmerseddel"
 
       res.clearCookie(ckn)
-      db.insertlist(name, identifier)
+      await db.insertlist(name, identifier)
       //set cookie
       res.cookie( ckn, identifier, { maxAge : 1000 * 60 * 60 * 24 * 365 * 20 } )
 
-      res.render('make', { title: 'Dosmer', content : 'Laver ny liste...' })
+      //go to index
+      res.redirect('/')
+ 
 
     } else {
 
@@ -79,20 +81,27 @@ app.post('/newitem', async (req, res) => {
 
 app.get('/join/:list', async (req, res) => {
 
-  let cookie = req.cookies['dosmerlist']
+  let cookie = req.cookies[ckn]
   let list = req.params.list
+  let force = req.query.force
   let valid = shortid.isValid(list)
 
   //if no cookie and url is valid and in db
+  if (cookie && !force) {
+    res.render('join', { list: list })
+  }
+
   if (valid) {
 
       if (valid != cookie) {
         //if not an existing cookie check db and make new
         let indb =  await db.checklist(list) 
+        
         if ( indb[0].exists ) {
-            //set in cookie and in db
+  
             res.cookie( ckn, list, { maxAge : 1000 * 60 * 60 * 24 * 365 * 10 } )
             res.redirect('/')
+      
         } else {
             //not in db
             res.redirect('/404')

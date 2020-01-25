@@ -10,7 +10,7 @@ const initlist = require('./initlist.json')
 exports.log = async function log(res) {
     try {
         const client = await pool.connect()
-        const result = await client.query('SELECT * FROM lists')
+        const result = await client.query('SELECT * FROM items')
         const results = { 'results': (result) ? result.rows : null}
         res.send( results )
         client.release()
@@ -25,7 +25,8 @@ exports.insertlist = async function insertlist(name, identifier) {
     try {
         const client = await pool.connect()
         let q = "INSERT INTO lists(name, identifier) VALUES ('" + name + "','" + identifier + "')"
-        const result = await client.query(q)         
+        const result = await client.query(q)     
+  
         client.release() 
 
         initlist.items.forEach(element => {
@@ -43,8 +44,10 @@ exports.insertitem = async function insertitem(name, state, imp, list, category)
 
     try {
         const client = await pool.connect()
-        let q = "INSERT INTO items(name, state, imp, list, category) VALUES ('" + name + "'," + state + ",  '" + imp + ", '" + list +  ", '" + category + "') RETURNING id;"   
+        let q = "INSERT INTO items(name, state, imp, list, category) VALUES ('" + name + "', " + state + ", " + imp + ", '" + list +  "', '" + category + "') RETURNING id;"   
+        console.log(q)
         const result = await client.query(q) 
+
         //console.log(result.rows[0].id)
         client.release() 
         return result.rows[0].id
@@ -77,7 +80,7 @@ exports.getitems = async function getitems(list) {
     try {
         const client = await pool.connect()
         let q = "SELECT * FROM items WHERE list = '" + list + "'"
-        
+       
         const result = await client.query(q) 
         const results = (result) ? result.rows : null
        
@@ -94,9 +97,7 @@ exports.checklist = async function(list) {
     try {
         const client = await pool.connect()
         let q = "SELECT EXISTS(SELECT 1 FROM lists WHERE identifier = '" + list + "')"
-        
         const result = await client.query(q) 
- 
         client.release() 
         return result.rows
 
