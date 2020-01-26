@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Kulim+Park:300,400,700&display=swap");
+/* RGB */
 body, html {
   background-color: rgba(239, 239, 239, 0.1);
   margin: 0;
@@ -30,7 +31,7 @@ body, html {
 }
 
 .item {
-  background-color: white;
+  background-color: #fff;
   padding: 1rem;
   padding-right: 0;
   margin: .5rem;
@@ -69,6 +70,7 @@ body, html {
 
 .item.active:after {
   opacity: 1;
+  background-color: rgba(255, 173, 189, 0.5);
   background-image: url("../images/shopping-cart.svg");
   -webkit-animation: slide 1s linear infinite;
           animation: slide 1s linear infinite;
@@ -94,7 +96,7 @@ body, html {
 
 .item.on:after {
   opacity: 1;
-  background-color: #ff686b;
+  background-color: #ffadbd;
   background-image: url("../images/shopping-cart.svg");
 }
 
@@ -163,9 +165,8 @@ body, html {
 }
 
 .menu-container .menu .button {
-  background: white;
-  border: 3px solid #ff686b;
-  color: #ff686b;
+  background: #ffadbd;
+  color: #413c58;
   text-align: center;
   position: relative;
   margin-left: 10px;
@@ -197,7 +198,7 @@ body, html {
   height: 2px;
   top: 50%;
   border-radius: 2px;
-  background: #ff686b;
+  background: #413c58;
   display: block;
   position: absolute;
   left: 50%;
@@ -211,7 +212,7 @@ body, html {
 }
 
 .menu-container .menu .button.totop span {
-  background: #ff686b;
+  background: #413c58;
   display: block;
   position: absolute;
   left: 50%;
@@ -246,7 +247,7 @@ body, html {
   width: auto;
   height: auto;
   background: transparent;
-  border: 2px solid #ff686b;
+  border: 2px solid #413c58;
   border-radius: 4px;
   margin: .5rem;
 }
