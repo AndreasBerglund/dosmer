@@ -51,6 +51,19 @@ body, html {
           box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+.item:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 0;
+  width: 69px;
+  height: 60%;
+  background: transparent;
+  border-left: 1px solid #ffadbd;
+}
+
 .item:after {
   content: "";
   position: absolute;
@@ -61,7 +74,6 @@ body, html {
   border-radius: 0 8px 8px 0;
   width: 70px;
   height: 100%;
-  border-left: 1px solid #ffadbd;
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("../images/accept-circular-button-outline.svg");
