@@ -6,20 +6,11 @@ $greypink: rgba(255, 173, 189, 1);
 $grey: rgba(239, 233, 231, 1);
 $lgreen: rgba(206, 229, 215, 1);
 $mgreen: rgba(154, 213, 202, 1);
+$dgrey: #202020;
 
-$color1: rgba(255, 255, 255, 1);
-$color2: rgba(132, 220, 198, 1);
-$color3: rgba(165, 255, 214, 1);
-$color4: rgba(255, 166, 158, 1);
-$color5: rgba(255, 104, 107, 1);
-
-$dbrown: $color5;
-$lbrown: $color2;
-$yellow: $color2;
 $lgrey: #efefef;
 $mgrey: #ccc;
 $white : #fff;
-
 $bg_color :  rgba($lgrey,.1);
 
 body, html {
@@ -113,13 +104,13 @@ body, html {
         border: none;
         font-family: 'Kulim Park', sans-serif;
         font-size: 18px;  
-        color: #303030; 
+        color: $dblue; 
         max-width: 160px;
     }
 
     select {
         background-color: transparent;
-        color: #303030;
+        color: $dblue;
         border-radius: 8px;
         margin-right: 20px;
         max-width: 100px;
@@ -132,7 +123,6 @@ body, html {
     }
 
 }
-
 .menu-container {
     position: fixed;
     bottom: -150px; left: 0;
@@ -148,7 +138,7 @@ body, html {
     .menu {
 
         width: 100%; height: 60px;
-        background: $color1;
+        background: $white;
        
         display: flex;
         flex-direction: row;
@@ -163,7 +153,7 @@ body, html {
 
             background : $greypink;
             //border: 3px solid $white;
-            color: $dblue;
+            color: $white;
 
             text-align: center;
             position: relative;
@@ -193,7 +183,7 @@ body, html {
                     content: "";
                     width: 50%; height: 2px; top: 50%;
                     border-radius: 2px;
-                    background: $dblue;
+                    background: $white;
                     display: block;
                     position: absolute; left: 50%; transform: translateX(-50%);
                 }
@@ -205,7 +195,7 @@ body, html {
 
             &.totop {
                 span {
-                    background: $dblue;
+                    background: $white;
                     display: block;
                     position: absolute; left: 50%; transform: translateX(-50%);
                     width: 30%; height: 2px;
@@ -233,13 +223,15 @@ body, html {
 
 .search-container {
     width: auto; height: auto;
-    background: transparent; border: 2px solid $dblue;border-radius: 4px;
+    background: $white;  border: 2px solid $dblue; border-radius: 4px;
     margin: .5rem;
     input {
         padding: 1rem;
         width: 100%;
         background: transparent;
         border: none;
+       
+        
     }
 }
 
