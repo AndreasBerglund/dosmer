@@ -78,7 +78,7 @@ body, html {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("../images/accept-circular-button-outline.svg");
-  background-size: 24px;
+  background-size: 28px;
   opacity: 1;
 }
 
@@ -131,10 +131,10 @@ body, html {
 
 .item .pseudo-select {
   pointer-events: none;
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
   border: 2px solid #413c58;
-  border-radius: 20px;
+  border-radius: 30px;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
