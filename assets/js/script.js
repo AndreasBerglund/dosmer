@@ -183,6 +183,14 @@
             })
         })
 
+        //select styling
+        let $select = $('select')
+        $select.on('change', function() {
+            let str = $(this).val().toLowerCase().replace(/ /g, '-')
+            $(this).siblings('.pseudo-select').attr('class', 'pseudo-select')
+            $(this).siblings('.pseudo-select').addClass(str)
+        });
+
     });
 
 })(jQuery);

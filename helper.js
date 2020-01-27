@@ -30,7 +30,9 @@ function sorter_categories(items) {
          
             let obj = categories_objects.find( x => x.name === element.category )
             let index = categories_objects.indexOf(obj)
-            categories_objects[index].items.push( element )
+            if ( index > -1) {
+                categories_objects[index].items.push( element )
+            }
                     
         } else {
 

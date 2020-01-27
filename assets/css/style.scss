@@ -115,22 +115,44 @@ body, html {
         background: transparent;
         border: none;
         font-family: 'Kulim Park', sans-serif;
+        font-weight: 900;
         font-size: 18px;  
         color: $dblue; 
         max-width: 160px;
     }
 
+    .pseudo-select {
+        pointer-events: none;
+        width: 20px; height: 20px;
+        border: 2px solid $dblue;
+        //background-color: $greypink;
+        border-radius: 20px;
+        position: absolute; top: 50%; transform: translateY(-50%); right:92px;
+        background-image: url('../images/categories/apple.svg');
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &.køl-og-mejeri {
+            background-image: url('../images/categories/milk.svg');
+        }
+    }
+
     select {
-        background-color: transparent;
-        color: $dblue;
+        background-color:transparent;
+        color: transparent;
+        option {
+            color: $dblue;
+        }
         border-radius: 8px;
-        margin-right: 20px;
-        max-width: 100px;
+        margin-right: 0px;
+        max-width: 60px;
         padding: 0px;
         border: 1px solid transparent;
         font-family: 'Kulim Park', sans-serif;
         font-size: 12px; 
         font-weight: 300; 
+
        
     }
 
