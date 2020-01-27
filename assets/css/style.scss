@@ -115,7 +115,7 @@ body, html {
         background: transparent;
         border: none;
         font-family: 'Kulim Park', sans-serif;
-        font-weight: 900;
+        font-weight: 300;
         font-size: 18px;  
         color: $dblue; 
         max-width: 160px;
@@ -135,6 +135,9 @@ body, html {
 
         &.køl-og-mejeri {
             background-image: url('../images/categories/milk.svg');
+        }
+        &.kolonial {
+            background-image: url('../images/categories/beans.svg');
         }
     }
 
