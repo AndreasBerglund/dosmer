@@ -213,15 +213,25 @@ body, html {
 }
 
 .menu-container .menu .button {
-  background: #ffadbd;
+  background: #413c58;
   color: #fff;
   text-align: center;
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
   font-weight: 900;
-  font-size: 12px;
-  text-transform: normal;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.menu-container .menu .button span.text {
+  display: inline-block;
+  position: absolute;
+  top: 44px;
+  left: 0%;
+  width: 100%;
+  text-align: center;
+  color: #413c58;
 }
 
 .menu-container .menu .button.big {
@@ -230,6 +240,10 @@ body, html {
   border-radius: 100px;
   margin-top: -80px;
   line-height: 80px;
+}
+
+.menu-container .menu .button.big span.text {
+  top: 54px;
 }
 
 .menu-container .menu .button.small {
@@ -259,7 +273,7 @@ body, html {
           transform: translateX(-50%) rotate(90deg);
 }
 
-.menu-container .menu .button.totop span {
+.menu-container .menu .button.totop span:not(.text) {
   background: #fff;
   display: block;
   position: absolute;
@@ -272,20 +286,20 @@ body, html {
   top: 20px;
 }
 
-.menu-container .menu .button.totop span:first-child {
+.menu-container .menu .button.totop span:not(.text):nth-child(2) {
   width: 50%;
   top: 50%;
   -webkit-transform: translateX(-50%) rotate(90deg);
           transform: translateX(-50%) rotate(90deg);
 }
 
-.menu-container .menu .button.totop span:nth-child(2) {
+.menu-container .menu .button.totop span:not(.text):nth-child(3) {
   left: 27px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-.menu-container .menu .button.totop span:nth-child(3) {
+.menu-container .menu .button.totop span:not(.text):nth-child(4) {
   left: 15px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -294,14 +308,31 @@ body, html {
 .search-container {
   width: auto;
   height: auto;
-  background: #fff;
+  background: #413c58;
 }
 
 .search-container input {
   padding: 1rem;
   width: 100%;
-  background: transparent;
+  background: #413c58;
+  color: #fff;
   border: none;
+}
+
+.search-container input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.search-container input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.search-container input::-ms-input-placeholder {
+  color: #fff;
+}
+
+.search-container input::placeholder {
+  color: #fff;
 }
 
 #hiddenurl {

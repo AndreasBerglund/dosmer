@@ -1,6 +1,6 @@
 html
   include head.pug
-  body(class="blue")
+  body(class="")
     h1= message
     div(class="search-container")
       input(type="text" id="search" placeholder="Søg")
@@ -17,9 +17,12 @@ html
       input( type="text" name="hiddenurl" id="hiddenurl" value=urlto)
     div(class="menu-container show") 
       div(class="menu")
-        div( class="share button round small")='del'
+        div( class="share button round small")
+          span(class="text")='del'
         div( class="newitem button round big")
+           span(class="text")='nyt indkøb'
         div( class="totop button round small")
+          span(class="text")='til toppen'
           span 
           span  
           span
