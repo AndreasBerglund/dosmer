@@ -1,7 +1,8 @@
 html
   include head.pug
-  body
-    h1= title
-    p= content
-    if link 
-        a(href="/make?force=true")= "Lav en liste"
+  body(class="blue")
+    div(class="container")
+      h1= title
+      p= content
+      if link 
+          a(href="/make?force=true" class="button pink")= "Lav en liste"

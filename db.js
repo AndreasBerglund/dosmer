@@ -45,7 +45,6 @@ exports.insertitem = async function insertitem(name, state, imp, list, category)
     try {
         const client = await pool.connect()
         let q = "INSERT INTO items(name, state, imp, list, category) VALUES ('" + name + "', " + state + ", " + imp + ", '" + list +  "', '" + category + "') RETURNING id;"   
-        console.log(q)
         const result = await client.query(q) 
 
         //console.log(result.rows[0].id)

@@ -49,6 +49,9 @@
                     //console.log(data)
                     if (newitem == 1) {
                         item.attr('data-id', data.id )
+                        item.attr('id', 'item-' + data.id)
+                        item.attr('data-imp', "0")
+                        item.attr('data-sorted', "0")
                     } 
                     
                 },
@@ -107,6 +110,7 @@
             
             newitem.find('input[type=text').val('')
             newitem.find('input[type=text]').focus()
+            window.scrollTo(0,document.body.scrollHeight);
         })
 
 
