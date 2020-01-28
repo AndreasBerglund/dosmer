@@ -228,7 +228,7 @@ body, html {
   width: 80px;
   height: 80px;
   border-radius: 100px;
-  margin-top: -60px;
+  margin-top: -80px;
   line-height: 80px;
 }
 
@@ -295,9 +295,6 @@ body, html {
   width: auto;
   height: auto;
   background: #fff;
-  border: 2px solid #413c58;
-  border-radius: 4px;
-  margin: .5rem;
 }
 
 .search-container input {
