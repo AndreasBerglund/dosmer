@@ -51,6 +51,7 @@ app.get('/make', async (req, res) => {
 
       res.clearCookie(ckn)
       await db.insertlist(name, identifier)
+
       //set cookie
       res.cookie( ckn, identifier, { maxAge : 1000 * 60 * 60 * 24 * 365 * 20 } )
 
@@ -89,9 +90,8 @@ app.get('/join/:list', async (req, res) => {
   //if no cookie and url is valid and in db
   if (cookie && !force) {
     res.render('join', { list: list })
-  }
-
-  if (valid) {
+  } else {
+    if (valid) {
 
       if (valid != cookie) {
         //if not an existing cookie check db and make new
@@ -116,6 +116,10 @@ app.get('/join/:list', async (req, res) => {
     //not valid list id
     res.redirect('/404')
   }
+
+  }
+
+
 
 })
 
