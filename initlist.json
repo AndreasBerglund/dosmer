@@ -2,13 +2,13 @@
     "items" : [
         {
             "name" : "Mælk",
-            "state" : "false",
+            "state" : "true",
             "category" : "Køl og mejeri",
             "imp" : "1"
         },
         {
             "name" : "Smør",
-            "state" : "false",
+            "state" : "true",
             "category" : "Køl og mejeri",
             "imp" : "1"
         },
@@ -19,9 +19,87 @@
             "imp" : "1"
         },
         {
+            "name" : "Kiks",
+            "state" : "false",
+            "category" : "Brød, kiks og kager",
+            "imp" : "1"
+        },
+        {
             "name" : "Kartofler",
             "state" : "false",
             "category" : "Frugt og grønt",
+            "imp" : "1"
+        },
+        {
+            "name" : "Gulerødder",
+            "state" : "false",
+            "category" : "Frugt og grønt",
+            "imp" : "1"
+        },
+        {
+            "name" : "Hakkede tomater",
+            "state" : "false",
+            "category" : "Kolonial",
+            "imp" : "1"
+        },
+        {
+            "name" : "Ris",
+            "state" : "false",
+            "category" : "Kolonial",
+            "imp" : "1"
+        },
+        {
+            "name" : "Hakket oksekød",
+            "state" : "false",
+            "category" : "Kød",
+            "imp" : "1"
+        },
+        {
+            "name" : "Kylling",
+            "state" : "false",
+            "category" : "Kød",
+            "imp" : "1"
+        },
+        {
+            "name" : "Laks",
+            "state" : "false",
+            "category" : "Fisk og skaldyr",
+            "imp" : "1"
+        },
+        {
+            "name" : "Rejer",
+            "state" : "false",
+            "category" : "Fisk og skaldyr",
+            "imp" : "1"
+        },
+        {
+            "name" : "Ærter",
+            "state" : "false",
+            "category" : "Frost",
+            "imp" : "1"
+        },
+        {
+            "name" : "Frysepizza",
+            "state" : "false",
+            "category" : "Frost",
+            "imp" : "1"
+        },
+        {
+            "name" : "Toiletpapir",
+            "state" : "false",
+            "category" : "Pleje og skønhed",
+            "imp" : "1"
+        },
+        {
+            "name" : "Tandpasta",
+            "state" : "false",
+            "category" : "Pleje og skønhed",
+            "imp" : "1"
+        },
+        {
+            "name" : "Shampoo",
+            "state" : "false",
+            "category" : "Pleje og skønhed",
             "imp" : "1"
         }
     ]
