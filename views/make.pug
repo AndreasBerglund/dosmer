@@ -2,7 +2,9 @@ html
   include head.pug
   body(class="blue")
     div(class="container")
+      div(class="dosmer-icon")
       h1= title
       p= content
       if link 
           a(href="/make?force=true" class="button pink")= "Lav en liste"
+          a(href="/" class="link")= "Annuller"

@@ -357,34 +357,56 @@ body, html {
   width: auto;
   height: auto;
   background: #413c58;
+  padding: .5rem;
 }
 
 .search-container input {
   padding: 1rem;
   width: 100%;
-  background: #413c58;
-  color: #fff;
+  background: #fff;
+  color: #413c58;
+  border-radius: 6px;
   border: none;
 }
 
 .search-container input::-webkit-input-placeholder {
-  color: #fff;
+  color: #413c58;
 }
 
 .search-container input:-ms-input-placeholder {
-  color: #fff;
+  color: #413c58;
 }
 
 .search-container input::-ms-input-placeholder {
-  color: #fff;
+  color: #413c58;
 }
 
 .search-container input::placeholder {
-  color: #fff;
+  color: #413c58;
 }
 
 #hiddenurl {
   opacity: 0;
+}
+
+a.link {
+  text-align: center;
+  color: #ffadbd;
+  margin-top: 2rem;
+}
+
+.dosmer-icon {
+  width: 60px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  display: block;
+  background-color: transparent;
+  background-image: url("../images/cart.svg");
+  background-size: 24px;
+  border-radius: 60px;
+  border: 2px solid #ffadbd;
 }
 
 h1 {
@@ -396,7 +418,7 @@ h1 {
 
 .container {
   padding: 40px;
-  height: 70%;
+  height: 85%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
