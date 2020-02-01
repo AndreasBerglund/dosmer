@@ -190,7 +190,7 @@
         //select styling
         let $select = $('select')
         $select.on('change', function() {
-            let str = $(this).val().toLowerCase().replace(/ /g, '-')
+            let str = $(this).val().toLowerCase().replace(/ /g, '-').replace(',', '')
             $(this).siblings('.pseudo-select').attr('class', 'pseudo-select')
             $(this).siblings('.pseudo-select').addClass(str)
         });

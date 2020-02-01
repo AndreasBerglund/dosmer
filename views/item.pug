@@ -12,7 +12,7 @@ div(id="item-" + item.id class=item.state ? 'on item' : 'item' data-id=item.id d
                 option(value=val selected)=val
             else 
                 option(value= val)=val
-    div(class=item.category.toLowerCase().replace(/ /g, '-') + ' pseudo-select')
+    div(class=item.category.toLowerCase().replace(/ /g, '-').replace(',','') + ' pseudo-select')
     if item.state
         input(
             type='checkbox'

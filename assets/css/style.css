@@ -82,14 +82,14 @@ body, html {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("../images/accept-circular-button-outline.svg");
-  background-size: 28px;
+  background-size: 22px;
   opacity: 1;
 }
 
 .item.active:after {
   opacity: 1;
   background-color: rgba(255, 173, 189, 0.5);
-  background-image: url("../images/shopping-cart.svg");
+  background-image: url("../images/cart.svg");
   -webkit-animation: slide 1s linear infinite;
           animation: slide 1s linear infinite;
 }
@@ -114,8 +114,8 @@ body, html {
 
 .item.on:after {
   opacity: 1;
-  background-color: #ffadbd;
-  background-image: url("../images/shopping-cart.svg");
+  background-color: #413c58;
+  background-image: url("../images/cart.svg");
 }
 
 .item input[type=checkbox] {
@@ -144,7 +144,7 @@ body, html {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   right: 92px;
-  background-image: url("../images/categories/apple.svg");
+  background-image: url("../images/categories/battery-level.svg");
   background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
@@ -158,12 +158,60 @@ body, html {
   background-image: url("../images/categories/beans.svg");
 }
 
+.item .pseudo-select.frugt-og-grønt {
+  background-image: url("../images/categories/pear.svg");
+}
+
+.item .pseudo-select.kød {
+  background-image: url("../images/categories/ham.svg");
+}
+
+.item .pseudo-select.fisk-og-skaldyr {
+  background-image: url("../images/categories/fish.svg");
+}
+
+.item .pseudo-select.frost {
+  background-image: url("../images/categories/frozen.svg");
+}
+
+.item .pseudo-select.brød-kiks-og-kager {
+  background-image: url("../images/categories/croissant.svg");
+}
+
+.item .pseudo-select.drikkevarer {
+  background-image: url("../images/categories/beer-bottle.svg");
+}
+
+.item .pseudo-select.vin {
+  background-image: url("../images/categories/wine.svg");
+}
+
+.item .pseudo-select.blomster-og-have {
+  background-image: url("../images/categories/flower.svg");
+}
+
+.item .pseudo-select.kiosk-slik-og-snacks {
+  background-image: url("../images/categories/candy.svg");
+}
+
+.item .pseudo-select.pleje-og-skønhed {
+  background-image: url("../images/categories/shampoo.svg");
+}
+
+.item .pseudo-select.baby-børn-og-legetøj {
+  background-image: url("../images/categories/pacifier.svg");
+}
+
+.item .pseudo-select.husholdning-og-isenkram {
+  background-image: url("../images/categories/lamp.svg");
+}
+
 .item select {
   background-color: transparent;
   color: transparent;
   border-radius: 8px;
   margin-right: 0px;
-  max-width: 60px;
+  max-width: 160px;
   padding: 0px;
   border: 1px solid transparent;
   font-family: 'Kulim Park', sans-serif;
@@ -398,5 +446,19 @@ a.button {
 a.button.pink {
   background-color: #ffadbd;
   color: #413c58;
+}
+
+.attr {
+  padding: 2rem 15px 10rem 15px;
+}
+
+.attr p {
+  font-size: 10px;
+  line-height: 12px;
+  color: #ccc;
+}
+
+.attr p a {
+  color: #ffadbd;
 }
 /*# sourceMappingURL=style.css.map */
