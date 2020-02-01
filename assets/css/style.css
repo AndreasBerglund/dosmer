@@ -261,8 +261,8 @@ body, html {
 }
 
 .menu-container .menu .button {
-  background: #413c58;
-  color: #fff;
+  background-color: #413c58;
+  color: #ffadbd;
   text-align: center;
   position: relative;
   margin-left: 10px;
@@ -308,7 +308,7 @@ body, html {
   height: 2px;
   top: 50%;
   border-radius: 2px;
-  background: #fff;
+  background: #ffadbd;
   display: block;
   position: absolute;
   left: 50%;
@@ -321,8 +321,15 @@ body, html {
           transform: translateX(-50%) rotate(90deg);
 }
 
+.menu-container .menu .button.share {
+  background-image: url("../images/share.svg");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: 45% 50%;
+}
+
 .menu-container .menu .button.totop span:not(.text) {
-  background: #fff;
+  background: #ffadbd;
   display: block;
   position: absolute;
   left: 50%;

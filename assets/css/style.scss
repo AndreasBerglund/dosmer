@@ -228,9 +228,9 @@ body, html {
     
         .button  {
 
-            background : $dblue;
+            background-color : $dblue;
             //border: 3px solid $white;
-            color: $white;
+            color: $greypink;
 
             text-align: center;
             position: relative;
@@ -268,7 +268,7 @@ body, html {
                     content: "";
                     width: 50%; height: 2px; top: 50%;
                     border-radius: 2px;
-                    background: $white;
+                    background: $greypink;
                     display: block;
                     position: absolute; left: 50%; transform: translateX(-50%);
                 }
@@ -278,9 +278,16 @@ body, html {
                 }
             }
 
+            &.share {
+                background-image: url('../images/share.svg');
+                background-size: 50%;
+                background-repeat: no-repeat;
+                background-position: 45% 50%;
+            }
+
             &.totop {
                 span:not(.text) {
-                    background: $white;
+                    background: $greypink;
                     display: block;
                     position: absolute; left: 50%; transform: translateX(-50%);
                     width: 30%; height: 2px;
