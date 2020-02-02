@@ -209,14 +209,14 @@ body, html {
 .item select {
   background-color: transparent;
   color: transparent;
-  border-radius: 8px;
-  margin-right: 0px;
-  max-width: 160px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 100px;
+  max-width: 60px;
   padding: 0px;
-  border: 1px solid transparent;
-  font-family: 'Kulim Park', sans-serif;
-  font-size: 12px;
-  font-weight: 300;
+  border: none;
 }
 
 .item select option {
