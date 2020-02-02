@@ -213,14 +213,20 @@ body, html {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  right: 100px;
+  right: 90px;
   max-width: 60px;
   padding: 0px;
   border: none;
+  font-size: 30px;
 }
 
 .item select option {
   color: #413c58;
+}
+
+.item select:focus {
+  border: none;
+  outline: none;
 }
 
 .menu-container {

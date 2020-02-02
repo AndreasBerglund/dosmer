@@ -186,7 +186,7 @@ body, html {
         color: transparent;
         position: absolute;
         top: 50%; transform: translateY(-50%);
-        right: 100px;
+        right: 90px;
         option {
             color: $dblue;
         }
@@ -194,6 +194,10 @@ body, html {
         max-width: 60px;
         padding: 0px;
         border:none;
+        font-size: 30px;
+        &:focus {
+            border: none; outline: none;
+        }
     }
 
 }
