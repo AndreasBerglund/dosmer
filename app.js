@@ -1,7 +1,11 @@
 const express = require('express')
 const app = express()
+const http = require('http').createServer(app)
+var io = require('socket.io')(http);
 const port = process.env.PORT || 3001
 const cookieParser = require('cookie-parser')
+const cookieParser_s = require('socket.io-cookie-parser');
+io.use(cookieParser_s());
 const shortid = require('shortid')
 const ckn = 'dosmerlist'
 const db = require('./db.js')
@@ -14,6 +18,25 @@ app.set('view engine', 'pug')
 
 app.use(express.static('assets'))
 app.use(bodyParser.json())
+
+io.on('connection', function(socket){
+
+  console.log('a user connected');
+ 
+  let list = socket.request.cookies['dosmerlist']
+  if ( list ) {
+    socket.join ( list )
+  }
+  
+  socket.on('item', function(msg){
+
+    console.log('item changed. id: ' + msg.id + ' to list: ' + list);
+    socket.to( list ).emit('item', msg)
+
+  });
+
+
+});
 
 app.get('/db', async (req, res) => {
     db.log(res)
@@ -128,4 +151,4 @@ app.use(function (req, res, next) {
 })
 
 
-app.listen(port, () => console.log(`Dosmer app listening on port ${port}!`))
+http.listen(port, () => console.log(`Dosmer app listening on port ${port}!`))

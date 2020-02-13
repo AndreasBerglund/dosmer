@@ -2,6 +2,21 @@
     console.log('dosmer');
     $(document).ready(function() {
 
+        let socket = io()    
+        
+        socket.on('item', function(msg){
+            let changed_item = $('.item[data-id="' + msg.id + '"]')
+            changed_item.find('input[name=name]').val(msg.name)
+            changed_item.find('input[type=checkbox]').prop("checked", msg.state ).trigger('change', true)
+            if ( msg.state ) {
+                changed_item.addClass('on')
+            } else {
+                changed_item.removeClass('on')
+            }
+            changed_item.find('select').val(msg.category).trigger('change', true)
+                
+        });
+
         function updateItem(item, newitem=0, toggle=false) {
 
             let textBox = item.find('input[name=name]')
@@ -53,7 +68,9 @@
                         item.attr('data-imp', "0")
                         item.attr('data-sorted', "0")
                     } 
-                    
+
+                    socket.emit('item', { 'id' : id, 'name' : name, 'state' : state, 'category': category, 'list' : list})
+       
                 },
                 error: function(xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");
@@ -90,12 +107,18 @@
                 
             })
     
-            $('.item').find('input, select').on('change', function(e){
+            $('.item').find('input, select').on('change', function(e, io){
               
                 if ( e.target.type == 'select-one' ) {
                     $(this).parent('.item').attr('data-cat', $(this).val())
                 }
-                updateItem($(e.target).parent('.item'))
+
+                if ( !io ) {
+                
+                    updateItem( $(e.target).parent('.item') )
+                
+                }
+                
             
             })
     
